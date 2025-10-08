@@ -23,7 +23,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
             {/* Rutas del dashboard con layout fijo */}
             <Route path="/accounts" element={<DashboardLayout />}>
               <Route index element={<AccountsPage />} />
