@@ -6,6 +6,7 @@ import AccountsPage from "./pages/Accounts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AccountDetailsPage } from "./pages/AccountDetails";
+import HomePage from "./pages/Home";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,6 +23,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<HomePage />}></Route>
             {/* Rutas del dashboard con layout fijo */}
             <Route path="/accounts" element={<DashboardLayout />}>
               <Route index element={<AccountsPage />} />

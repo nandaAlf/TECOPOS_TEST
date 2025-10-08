@@ -9,7 +9,7 @@ export function Navigation() {
   const navItems = [
     { path: "/accounts", label: "Cuentas", icon: CreditCard },
     { path: " ", label: "Transacciones", icon: BarChart3 },
-    { path: " ", label: "Perfil", icon: User },
+    { path: "  ", label: "Perfil", icon: User },
   ];
 
   const isActive = (path: string) => location.pathname.startsWith(path);
@@ -48,7 +48,7 @@ export function Navigation() {
           {/* Usuario y menú mobile */}
           <div className="flex items-center gap-4">
             <span className="hidden sm:block text-sm text-gray-600">
-              Hola, Usuario
+              Bienvendido!
             </span>
 
             {/* Botón menú mobile */}
