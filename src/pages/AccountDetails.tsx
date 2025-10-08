@@ -3,18 +3,23 @@ import { useAccount, useAccountTransactions } from "../hooks/useAccounts";
 import { TransactionRow } from "../components/TransactionRow";
 import { useState } from "react";
 import type { BankAccount, Transaction } from "../types/type";
+import { TransactionForm } from "../components/form/TransactionForm";
 
 export function AccountDetailsPage() {
   const { id: accountId } = useParams();
   const [showForm, setShowForm] = useState(false);
 
-  const { data: account, isLoading: accountLoading } = useAccount(accountId!);
-  const { data: transactions, isLoading: transactionsLoading } =
-    useAccountTransactions(accountId!);
+  const { data: account, isLoading: accountLoading,  refetch: refetchAccount  } = useAccount(accountId!);
+  const { data: transactions, isLoading: transactionsLoading,  refetch: refetchTransactions  } = useAccountTransactions(accountId!);
 
   if (!accountId) {
     return <div className="p-4 text-red-600">ID de cuenta no válido</div>;
   }
+  const handleTransactionSuccess = () => {
+    setShowForm(false);
+    refetchAccount();
+    refetchTransactions();
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 min-w-full">
@@ -46,8 +51,18 @@ export function AccountDetailsPage() {
       </div>
 
       {/* Formulario */}
+
       {showForm && account && (
-        <></>
+        <div className="fixed inset-0 backdrop-blur-sm bg-opacity-5- flex items-center justify-center p-4 z-50">
+          <TransactionForm
+            accountId={account.id}
+            currency={account.currency}
+            accountNumber={account.accountNumber}
+            onSuccess={handleTransactionSuccess}
+            onCancel={() => setShowForm(false)}
+            balance={account.balance}
+          />
+        </div>
       )}
 
       {/* Lista de Transacciones */}
@@ -85,7 +100,6 @@ function AccountInfo({ account }: { account: BankAccount }) {
           </span>
         </div>
       </div>
-
     </div>
   );
 }

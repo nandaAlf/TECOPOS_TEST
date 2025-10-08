@@ -22,4 +22,17 @@ export const accountService = {
     });
     return response.data;
   },
+  // Obtener transacciones de una cuenta por ID
+  createTransaction: async (transactionData: Omit<Transaction, 'id' | 'date' | 'status' | 'reference'>): Promise<Transaction> => {
+    const newTransaction = {
+      ...transactionData,
+      date: new Date().toISOString(),
+      status: 'Completada',
+      reference: `REF-${Date.now()}`
+    };
+
+    const response = await api.post('/transactions', newTransaction);
+    console.log("resp post",response)
+    return response.data;
+  },
 };
