@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+#  Sistema Bancario
+Una aplicación construida con React, TypeScript y Tailwind CSS.
+# url con VerceL : 
+https://tecopos-test-rx8f.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Características
 
-Currently, two official plugins are available:
+- 💳 **Gestión de Cuentas** - Visualiza y administra tus cuentas bancarias
+- 💰 **Transacciones** - Realiza depósitos y retiros de forma segura
+- 📱 **Diseño Responsive** - Funciona perfecto en desktop y móvil
+- 🎨 **Interfaz Moderna** - Diseño limpio y profesional con Tailwind CSS
+- ⚡ **Rendimiento Optimizado** - Caché inteligente con React Query
+- 🔒 **Tipado Estático** - TypeScript para mayor confiabilidad
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tecnologías Utilizadas
 
-## React Compiler
+- **Frontend:** React 18, TypeScript, Tailwind CSS
+- **Routing:** React Router DOM
+- **Estado del Servidor:** TanStack React Query
+- **HTTP Client:** Axios
+- **Iconos:** Lucide React
+- **Build Tool:** Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📦 Instalación
+```bash
+# Clonar el repositorio
+https://github.com/nandaAlf/TECOPOS_TEST
 
-## Expanding the ESLint configuration
+# Entrar al directorio
+cd TECOPOS_TEST
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Instalar dependencias
+npm install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Iniciar servidor de desarrollo
+npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+#  Estructura del Proyecto
+text
+src/
+├── components/          # Componentes reutilizables
+├── pages/              # Páginas de la aplicación
+├── hooks/              # Custom hooks (React Query)
+├── services/           # Servicios API   con  https://mockapi.io/
+├── types/              # Definiciones TypeScript
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+#  Funcionalidades Principales
+ Páginas
+Login - Autenticación de usuarios
+Dashboard - Vista general de cuentas
+Detalles de Cuenta - Información específica y transacciones
+Formulario de Transacciones - Modal para operaciones
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Gestión de Estado
+React Query para cache y sincronización de datos
+Validaciones en tiempo real en formularios
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Diseño y UX
+Skeletons durante la carga de datos
+Estados vacíos con mensajes descriptivos
+Design System consistente con Tailwind
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# API y Datos
+La aplicación utiliza MockAPI para simular endpoints REST:
+GET /accounts - Obtener listado de cuentas
+GET /accounts/:id - Obtener cuenta específica
+GET /transactions - Obtener transacciones de una cuenta por id
+POST /transactions - Crear nueva transacción en la cuenta
+
+
+
