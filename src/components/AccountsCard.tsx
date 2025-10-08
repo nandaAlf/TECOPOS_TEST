@@ -25,7 +25,7 @@ export const AccountCard: React.FC<AccountCardProps> = ({ account, onViewDetails
     currency: {
       "USD": "text-emerald-600 bg-emerald-50 border-emerald-200",
       "EUR": "text-yellow-600 bg-yellow-50 border-yellow-200",
-      "MN":"text-slate-600 bg-slate-50 border-slate-200"
+      "CUP":"text-slate-600 bg-slate-50 border-slate-200"
     }
   };
 

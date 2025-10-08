@@ -3,7 +3,7 @@ export type BankAccount = {
   accountNumber: string;
   accountType: "Ahorro" | "Corriente" | "Inversión"
   balance: number;
-  currency: "MN" | "USD" | "EUR";
+  currency: "CUP" | "USD" | "EUR";
   status: "Activa" | "Bloqueada" | "Inactiva"
   createdAt: string
 };
