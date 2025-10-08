@@ -9,9 +9,8 @@ interface TransactionRowProps {
 export function TransactionRow({ transaction }: TransactionRowProps) {
   const { type, amount, description, reference, date } = transaction;
   
-  const isPositive = amount > 0;
-  const amountColor = isPositive ? "text-green-600" : "text-gray-900";
-  const amountSign = isPositive ? "+" : "-";
+  const amountColor = type=="Depósito" ? "text-green-600" : "text-gray-900";
+  const amountSign = type=="Depósito" ? "+" : "-";
   
   const formattedAmount = new Intl.NumberFormat("es-US", {
     style: "currency",
