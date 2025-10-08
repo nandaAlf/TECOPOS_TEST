@@ -1,18 +1,25 @@
-import type { BankAccount } from "../types/type";
+import type { BankAccount, Transaction } from "../types/type";
 import { api } from "./api";
 
 export const accountService = {
-  
   // Obtener todas las cuentas
   getAccounts: async (): Promise<BankAccount[]> => {
-    const response = await api.get('/account');
+    const response = await api.get("/account");
     return response.data;
   },
 
   // Obtener cuenta por ID
   getAccountById: async (id: string): Promise<BankAccount> => {
     const response = await api.get(`/account/${id}`);
+    console.log("response",response)
     return response.data;
   },
 
+  // Obtener transacciones de una cuenta por ID
+  getAccountTransactions: async (accountId: string): Promise<Transaction[]> => {
+    const response = await api.get(`/transactions`, {
+      params: { accountId }, 
+    });
+    return response.data;
+  },
 };

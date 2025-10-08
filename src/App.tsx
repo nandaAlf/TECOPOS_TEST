@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AccountDetailsPage from "./pages/AccountDetails";
+
 import DashboardLayout from "./pages/Dashboard";
 import AccountsPage from "./pages/Accounts";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { AccountDetailsPage } from "./pages/AccountDetails";
 
 const queryClient = new QueryClient({
   defaultOptions: {

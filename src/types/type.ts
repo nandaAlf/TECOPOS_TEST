@@ -7,3 +7,14 @@ export type BankAccount = {
   status: "Activa" | "Bloqueada" | "Inactiva"
   createdAt: string
 };
+
+export interface Transaction { 
+  id: string
+  accountId: string
+  type: "Depósito" | "Retiro" 
+  amount: number
+  description: string
+  date: string
+  status: "Completada" | "Pendiente" | "Rechazada"
+  reference: string
+}
